@@ -1,17 +1,17 @@
-var wordInput = document.getElementById("word");
-var timesToRepeatInput = document.getElementById("timesToRepeat");
-var submitButton = document.getElementById("submit");
-var wordsDisplay = document.getElementById("words");
+let word = document.getElementById(`word`)
+let repeat = document.getElementById(`repeat`)
+let submitButton = document.getElementById(`submitButton`)
+let wordsParagraph = document.getElementById(`wordsParagraph`)
 
-submitButton.addEventListener("click", submit);
+submitButton.addEventListener(`click`, submit)
 
 function submit() {
-    var word = wordInput.value.trim();
-    var timesToRepeat = timesToRepeatInput.value.trim();
+  let wordValue = word.value.trim()
+  let repeatValue = repeat.value.trim()
 
-    if (word.length > 0 && !isNaN(timesToRepeat)) {
-        for (var i = 0; i < timesToRepeat; i++) {
-            wordsDisplay.innerHTML = wordsDisplay.innerHTML + " " + word;
-        }
+  if (wordValue != `` && repeatValue != `` && !isNaN(repeatValue)) {
+    for (let i = 0; i < repeatValue; i++) {
+      wordsParagraph.innerHTML = `${wordsParagraph.innerHTML} ${wordValue}`
     }
+  }
 }
