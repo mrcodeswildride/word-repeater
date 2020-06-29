@@ -10,8 +10,13 @@ function submit() {
   let repeatValue = repeat.value.trim()
 
   if (wordValue != `` && repeatValue != `` && !isNaN(repeatValue)) {
-    for (let i = 0; i < repeatValue; i++) {
-      wordsParagraph.innerHTML = `${wordsParagraph.innerHTML} ${wordValue}`
+    if (repeatValue > 500) {
+      wordsParagraph.innerHTML = `Times to repeat cannot be more than 500.`
+    }
+    else {
+      for (let i = 0; i < repeatValue; i++) {
+        wordsParagraph.innerHTML = `${wordsParagraph.innerHTML} ${wordValue}`
+      }
     }
   }
 }
