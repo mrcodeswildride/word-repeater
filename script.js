@@ -5,18 +5,17 @@ let wordsParagraph = document.getElementById(`wordsParagraph`)
 
 submitButton.addEventListener(`click`, submit)
 
+word.focus()
+
 function submit() {
   let wordValue = word.value.trim()
   let repeatValue = repeat.value.trim()
 
-  if (wordValue != `` && repeatValue != `` && !isNaN(repeatValue)) {
-    if (repeatValue > 500) {
-      wordsParagraph.innerHTML = `Times to repeat cannot be more than 500.`
-    }
-    else {
-      for (let i = 0; i < repeatValue; i++) {
-        wordsParagraph.innerHTML = `${wordsParagraph.innerHTML} ${wordValue}`
-      }
+  if (repeatValue > 500) {
+    wordsParagraph.innerHTML = `Times to repeat cannot be more than 500.`
+  } else {
+    for (let i = 0; i < repeatValue; i++) {
+      wordsParagraph.innerHTML = `${wordsParagraph.innerHTML} ${wordValue}`
     }
   }
 }
